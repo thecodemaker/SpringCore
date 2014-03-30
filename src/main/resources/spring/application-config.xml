@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="accountRepository" class="app.repository.JdbcAccountRepository">
+         <constructor-arg ref="dataSource" />
+    </bean>
+
+    <bean id="transactionRepository" class="app.repository.JdbcTransactionRepository">
+        <constructor-arg ref="dataSource" />
+    </bean>
+
+    <bean id="accountService" class="app.service.AccountManagerService">
+        <constructor-arg ref="accountRepository" />
+    </bean>
+
+    <bean id="transactionService" class="app.service.TransactionManagerService">
+        <constructor-arg ref="transactionRepository" />
+    </bean>
+
+    <bean id="transferService" class="app.service.MoneyTransferService">
+        <constructor-arg ref="accountService" />
+        <constructor-arg ref="transactionService" />
+    </bean>
+
+</beans>
