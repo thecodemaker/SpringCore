@@ -29,7 +29,7 @@ public class AccountManagerServiceTest {
     private static Account ACCOUNT = new Account(ACCOUNT_NUMBER, ACCOUNT_NAME, ACCOUNT_MONEY_AMOUNT);
 
     @InjectMocks
-    AccountManagerService accountService;
+    private AccountManagerService accountService;
 
     @Mock
     private AccountRepository accountRepository;

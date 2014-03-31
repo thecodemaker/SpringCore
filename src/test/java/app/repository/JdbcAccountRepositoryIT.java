@@ -24,7 +24,7 @@ import static org.hamcrest.core.IsNull.notNullValue;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration
-public class JdbcAccountRepositoryTestIT {
+public class JdbcAccountRepositoryIT {
 
     private static String ACCOUNT_NUMBER = "12345678901234";
     private static String ACCOUNT_NAME = "NAME";
