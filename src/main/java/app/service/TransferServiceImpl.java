@@ -6,12 +6,10 @@ import app.domain.Transaction;
 import app.util.TransactionValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
 
 @Service
-@Transactional
 public class TransferServiceImpl implements TransferService {
 
     private AccountService accountService;
@@ -24,7 +22,6 @@ public class TransferServiceImpl implements TransferService {
     }
 
     @Authenticated
-    @Transactional(timeout = 5)
     @Override
     public void transferAmount(Transaction transaction) {
 

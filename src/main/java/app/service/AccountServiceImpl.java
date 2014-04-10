@@ -7,12 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.dao.IncorrectResultSizeDataAccessException;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @Service
-@Transactional
 public class AccountServiceImpl implements AccountService {
 
     private AccountRepository accountRepository;
@@ -23,7 +21,6 @@ public class AccountServiceImpl implements AccountService {
     }
 
     @Authenticated
-    @Transactional(readOnly = true)
     @Override
     public Account findByNumber(String number) {
         List<Account> accounts = accountRepository.findByNumber(number);

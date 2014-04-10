@@ -38,7 +38,6 @@ public class Main {
     private void loadContext() {
         context = new ClassPathXmlApplicationContext("/spring/application-config.xml",
                 "/spring/aop-config.xml",
-                "/spring/tx-config.xml",
                 "/spring/database-config.xml");
     }
 
