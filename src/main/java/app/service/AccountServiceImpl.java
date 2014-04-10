@@ -1,24 +1,29 @@
 package app.service;
 
+import app.aop.security.Authenticated;
 import app.domain.Account;
 import app.repository.AccountRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.dao.IncorrectResultSizeDataAccessException;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @Service
-public class AccountManagerService implements AccountService {
+@Transactional
+public class AccountServiceImpl implements AccountService {
 
     private AccountRepository accountRepository;
 
     @Autowired
-    public AccountManagerService(AccountRepository accountRepository) {
+    public AccountServiceImpl(AccountRepository accountRepository) {
         this.accountRepository = accountRepository;
     }
 
+    @Authenticated
+    @Transactional(readOnly = true)
     @Override
     public Account findByNumber(String number) {
         List<Account> accounts = accountRepository.findByNumber(number);
@@ -31,6 +36,7 @@ public class AccountManagerService implements AccountService {
         return accounts.get(0);
     }
 
+    @Authenticated
     @Override
     public void save(Account account) {
         int count = accountRepository.insert(account);
@@ -42,6 +48,7 @@ public class AccountManagerService implements AccountService {
         }
     }
 
+    @Authenticated
     @Override
     public void updateMoneyAmount(Account account) {
         int count = accountRepository.updateMoneyAmount(account);

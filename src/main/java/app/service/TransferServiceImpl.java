@@ -1,25 +1,30 @@
 package app.service;
 
+import app.aop.security.Authenticated;
 import app.domain.Account;
 import app.domain.Transaction;
 import app.util.TransactionValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
 
 @Service
-public class MoneyTransferService implements TransferService {
+@Transactional
+public class TransferServiceImpl implements TransferService {
 
     private AccountService accountService;
     private TransactionService transactionService;
 
     @Autowired
-    public MoneyTransferService(AccountService accountService, TransactionService transactionService) {
+    public TransferServiceImpl(AccountService accountService, TransactionService transactionService) {
         this.accountService = accountService;
         this.transactionService = transactionService;
     }
 
+    @Authenticated
+    @Transactional(timeout = 5)
     @Override
     public void transferAmount(Transaction transaction) {
 

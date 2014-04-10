@@ -24,7 +24,7 @@ public class MoneyTransferServiceTest {
     private static Transaction TRANSACTION = new Transaction(PAYER_ACCOUNT_NUMBER, BENEFICIARY_ACCOUNT_NUMBER, MONEY_AMOUNT);
 
     @InjectMocks
-    private MoneyTransferService transferService;
+    private TransferServiceImpl transferService;
 
     @Mock
     private TransactionService transactionService;

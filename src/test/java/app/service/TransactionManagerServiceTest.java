@@ -26,7 +26,7 @@ public class TransactionManagerServiceTest {
     private static final Transaction TRANSACTION = new Transaction(PAYER_ACCOUNT_NUMBER, BENEFICIARY_ACCOUNT_NUMBER, MONEY_AMOUNT);
 
     @InjectMocks
-    private TransactionManagerService transactionService;
+    private TransactionServiceImpl transactionService;
 
     @Mock
     private TransactionRepository transactionRepository;

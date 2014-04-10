@@ -3,11 +3,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>app</groupId>
-    <artifactId>SpringCore</artifactId>
+    <artifactId>SpringAOP</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>SpringCore</name>
+    <name>SpringAOP</name>
 
     <properties>
         <org.springframework.version>4.0.3.RELEASE</org.springframework.version>
@@ -17,6 +17,8 @@
         <ch.qos.logback.version>1.1.1</ch.qos.logback.version>
         <junit.version>4.11</junit.version>
         <mockito.version>1.9.5</mockito.version>
+        <aspectjrt.version>1.6.8</aspectjrt.version>
+        <aspectjweaver.version>1.6.8</aspectjweaver.version>
     </properties>
 
     <dependencies>
@@ -69,6 +71,12 @@
 
         <dependency>
             <groupId>org.springframework</groupId>
+            <artifactId>spring-aop</artifactId>
+            <version>${org.springframework.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
             <artifactId>spring-test</artifactId>
             <version>${org.springframework.version}</version>
             <scope>test</scope>
@@ -85,6 +93,18 @@
             <groupId>org.hsqldb</groupId>
             <artifactId>hsqldb</artifactId>
             <version>${org.hsqldb.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjrt</artifactId>
+            <version>${aspectjrt.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>${aspectjweaver.version}</version>
         </dependency>
 
         <!--
