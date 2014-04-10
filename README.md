@@ -5,7 +5,7 @@ There is defined an @Authenticated annotation, for which there needs to be creat
 
 For this to happen, you need to:
 
-1. in aop-config.xml enable @AspectJ support
+1. enable @AspectJ support in aop-config.xml
 
 2. make SecurityAspect class as aspect
 
