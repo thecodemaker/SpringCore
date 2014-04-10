@@ -21,7 +21,7 @@ public class TransferServiceImpl implements TransferService {
         this.transactionService = transactionService;
     }
 
-    @Authenticated
+    // TODO  -> 4. annotate to secure method
     @Override
     public void transferAmount(Transaction transaction) {
 

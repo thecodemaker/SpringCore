@@ -9,11 +9,11 @@ import org.springframework.stereotype.Component;
  *
  * @author dvizireanu
  */
-@Aspect
-@Component
+// TODO  -> 2. make class as aspect
+// TODO  -> 3. make class as aspect
 public class SecurityAspect {
 
-    @Before("@annotation(Authenticated)")
+    // TODO  -> 5. define it as advice and also define it's pointcut that should intercept all methods annotated with @Authenticated
     public void secure() {
         if (!SecurityContext.isAuthenticated()) {
             throw new app.exception.SecurityException("Not authenticated !");
