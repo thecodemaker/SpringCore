@@ -11,7 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.math.BigDecimal;
 
 @Service
-@Transactional
+// TODO -> 3. make service classes transactional
 public class TransferServiceImpl implements TransferService {
 
     private AccountService accountService;
@@ -24,7 +24,7 @@ public class TransferServiceImpl implements TransferService {
     }
 
     @Authenticated
-    @Transactional(timeout = 5)
+    // TODO -> 5. add a time limit for a money transfer transaction
     @Override
     public void transferAmount(Transaction transaction) {
 
