@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--
+        Spring allows you to redefine the same bean name multiple times,
+        and takes the last bean definition processed for a given name to be the one that wins.
+
+        So for example, your could have an XML file defining your core beans, and import that in a client-specific XML file,
+        which also redefines some of those beans.
+
+        A better approach is to inheritance.
+    -->
+
+    <import resource="resourceImportConfigA.xml"/>
+    <import resource="resourceImportConfigB.xml"/>
+
+    <!--
+    INFO: Overriding bean definition for bean 'account':
+    replacing [Generic bean: class [app.domain.Account]; scope=; abstract=false; lazyInit=false; autowireMode=0;
+    dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null;
+    initMethodName=null; destroyMethodName=null; defined in class path resource [spring/resourceImportConfigA.xml]]
+    with [Generic bean: class [app.domain.Account]; scope=; abstract=false; lazyInit=false; autowireMode=0;
+    dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null;
+     initMethodName=null; destroyMethodName=null; defined in class path resource [spring/resourceImportConfigB.xml]]
+    -->
+
+</beans>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <bean id="account" class="app.domain.Account">
+        <constructor-arg name="moneyAmount"  value="0"/>
+        <constructor-arg name="name" value="AccountB" />
+        <constructor-arg name="number" value="4321" />
+    </bean>
+
+</beans>
